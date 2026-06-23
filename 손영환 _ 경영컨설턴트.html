@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<!-- saved from url=(0064)file:///C:/Users/USER/Downloads/son-younghwan-landing%20(9).html -->
+<html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>손영환 | 경영컨설턴트</title>
+<style>
+  :root{
+    --navy:#0f2540;
+    --navy-light:#1c3d63;
+    --accent:#c9a04e;
+    --bg:#fafaf8;
+    --bg-soft:#f1f0ec;
+    --text:#1a1a1a;
+    --text-soft:#5b5f66;
+    --white:#ffffff;
+    --border:#e3e1da;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Apple SD Gothic Neo','Malgun Gothic','Pretendard',-apple-system,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.65;
+    overflow-x:hidden;
+  }
+  a{text-decoration:none;color:inherit;}
+  ul{list-style:none;}
+
+  /* NAV */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:1000;
+    background:rgba(250,250,248,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+    transition:.3s;
+  }
+  nav{
+    max-width:1140px; margin:0 auto;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 24px;
+  }
+  .logo{font-size:1.25rem; font-weight:700; color:var(--navy); letter-spacing:.5px;}
+  .logo span{color:var(--accent);}
+  .nav-links{display:flex; gap:32px; font-size:.92rem; font-weight:500; color:var(--text-soft);}
+  .nav-links a:hover{color:var(--navy);}
+  .nav-cta{
+    background:var(--navy); color:var(--white); padding:9px 20px;
+    border-radius:30px; font-size:.85rem; font-weight:600; white-space:nowrap;
+    transition:.25s;
+  }
+  .nav-cta:hover{background:var(--navy-light); transform:translateY(-1px);}
+  .burger{display:none; flex-direction:column; gap:5px; cursor:pointer;}
+  .burger div{width:24px; height:2px; background:var(--navy);}
+
+  /* HERO */
+  .hero{
+    min-height:100vh; display:flex; align-items:center;
+    padding:140px 24px 80px;
+    background:
+      radial-gradient(circle at 80% 20%, rgba(201,160,78,0.12), transparent 50%),
+      linear-gradient(180deg,var(--bg) 0%, var(--bg-soft) 100%);
+  }
+  .hero-inner{max-width:1140px; margin:0 auto; width:100%; display:grid; grid-template-columns:1.3fr .7fr; gap:60px; align-items:center;}
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    color:var(--accent); font-weight:700; font-size:.85rem; letter-spacing:1px;
+    margin-bottom:18px;
+  }
+  .eyebrow::before{content:""; width:28px; height:2px; background:var(--accent);}
+  .hero h1{
+    font-size:clamp(2.4rem,5vw,3.6rem); font-weight:800; color:var(--navy);
+    line-height:1.2; margin-bottom:16px;
+  }
+  .hero h1 small{display:block; font-size:.45em; font-weight:600; color:var(--text-soft); margin-bottom:10px;}
+  .hero p.tagline{
+    font-size:1.15rem; color:var(--text-soft); max-width:520px; margin-bottom:36px;
+  }
+  .hero-buttons{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn-primary, .btn-outline{
+    padding:14px 28px; border-radius:30px; font-weight:600; font-size:.95rem;
+    transition:.25s; display:inline-flex; align-items:center; gap:8px;
+  }
+  .btn-primary{background:var(--navy); color:var(--white);}
+  .btn-primary:hover{background:var(--navy-light); transform:translateY(-2px); box-shadow:0 10px 24px rgba(15,37,64,.25);}
+  .btn-outline{border:1.5px solid var(--navy); color:var(--navy);}
+  .btn-outline:hover{background:var(--navy); color:var(--white); transform:translateY(-2px);}
+
+  .avatar-card{
+    background:var(--white); border-radius:24px; padding:36px;
+    box-shadow:0 20px 50px rgba(15,37,64,.12);
+    text-align:center; border:1px solid var(--border);
+  }
+  .avatar-circle{
+    width:120px; height:120px; border-radius:50%; margin:0 auto 18px;
+    background:linear-gradient(135deg,var(--navy),var(--navy-light));
+    display:flex; align-items:center; justify-content:center;
+    color:var(--white); font-size:2.2rem; font-weight:800;
+    border:4px solid var(--accent);
+  }
+  .avatar-photo{
+    width:120px; height:120px; border-radius:50%; object-fit:cover;
+    display:block; margin:0 auto 18px; border:4px solid var(--accent);
+  }
+  .avatar-card h3{color:var(--navy); font-size:1.15rem; margin-bottom:4px;}
+  .avatar-card .role{color:var(--text-soft); font-size:.88rem; margin-bottom:18px;}
+  .avatar-card ul{display:flex; flex-direction:column; gap:8px; text-align:left; font-size:.85rem; color:var(--text-soft);}
+  .avatar-card ul li{display:flex; gap:8px; align-items:flex-start;}
+  .avatar-card ul li::before{content:"●"; color:var(--accent); font-size:.5rem; margin-top:6px;}
+
+  /* SECTION GENERIC */
+  section{padding:100px 24px;}
+  .section-inner{max-width:1140px; margin:0 auto;}
+  .section-head{margin-bottom:50px; text-align:center;}
+  .section-head .tag{color:var(--accent); font-weight:700; font-size:.85rem; letter-spacing:1.5px; text-transform:uppercase;}
+  .section-head h2{font-size:clamp(1.8rem,3vw,2.4rem); color:var(--navy); font-weight:800; margin-top:8px;}
+  .section-head p{color:var(--text-soft); max-width:560px; margin:14px auto 0;}
+
+  .reveal{opacity:0; transform:translateY(28px); transition:opacity .7s ease, transform .7s ease;}
+  .reveal.show{opacity:1; transform:translateY(0);}
+
+  /* ABOUT CARDS */
+  .about-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:28px;}
+  .card{
+    background:var(--white); border:1px solid var(--border); border-radius:18px;
+    padding:32px 28px; transition:.3s;
+  }
+  .card:hover{transform:translateY(-6px); box-shadow:0 18px 40px rgba(15,37,64,.1); border-color:var(--accent);}
+  .card .num{color:var(--accent); font-weight:800; font-size:.85rem; margin-bottom:14px;}
+  .card h3{color:var(--navy); font-size:1.1rem; margin-bottom:12px;}
+  .card p, .card li{color:var(--text-soft); font-size:.92rem;}
+  .card ul{display:flex; flex-direction:column; gap:8px;}
+  .card ul li{display:flex; gap:8px;}
+  .card ul li::before{content:"—"; color:var(--accent); flex-shrink:0;}
+
+  section:nth-of-type(even){background:var(--bg-soft);}
+
+  /* TIMELINE */
+  .timeline{position:relative; padding-left:32px; border-left:2px solid var(--border);}
+  .t-item{position:relative; margin-bottom:48px;}
+  .t-item:last-child{margin-bottom:0;}
+  .t-dot{
+    position:absolute; left:-41px; top:4px; width:18px; height:18px; border-radius:50%;
+    background:var(--white); border:3px solid var(--accent);
+  }
+  .t-period{color:var(--accent); font-weight:700; font-size:.85rem; margin-bottom:6px;}
+  .t-item h3{color:var(--navy); font-size:1.2rem; margin-bottom:4px;}
+  .t-item .t-role{color:var(--text-soft); font-size:.9rem; margin-bottom:14px;}
+  .t-item ul{display:flex; flex-direction:column; gap:6px;}
+  .t-item ul li{font-size:.92rem; color:var(--text-soft); display:flex; gap:8px;}
+  .t-item ul li::before{content:"▸"; color:var(--accent); flex-shrink:0;}
+
+  /* EXPERTISE */
+  .expertise-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:28px;}
+
+  /* CREDENTIALS */
+  .cred-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:24px; margin-bottom:40px;}
+  .cred-box{background:var(--white); border:1px solid var(--border); border-radius:18px; padding:28px;}
+  .cred-box h3{color:var(--navy); font-size:1rem; margin-bottom:14px;}
+  .badges{display:flex; flex-wrap:wrap; gap:10px;}
+  .badge{
+    background:var(--bg-soft); color:var(--navy); font-size:.82rem; font-weight:600;
+    padding:8px 14px; border-radius:20px; border:1px solid var(--border);
+  }
+  .edu-line{display:flex; justify-content:space-between; flex-wrap:wrap; gap:6px; font-size:.92rem; color:var(--text-soft); padding-top:14px; border-top:1px solid var(--border); margin-top:14px;}
+  .edu-line strong{color:var(--navy);}
+
+  /* CONTACT */
+  .contact-wrap{display:grid; grid-template-columns:.9fr 1.1fr; gap:40px; align-items:start;}
+  .contact-info{background:var(--navy); color:var(--white); border-radius:20px; padding:40px;}
+  .contact-info h3{font-size:1.4rem; margin-bottom:10px;}
+  .contact-info p{color:#cdd6e0; margin-bottom:30px; font-size:.95rem;}
+  .contact-row{display:flex; align-items:center; gap:14px; margin-bottom:18px; font-size:.95rem;}
+  .contact-row .ic{width:38px; height:38px; border-radius:50%; background:rgba(255,255,255,.12); display:flex; align-items:center; justify-content:center; flex-shrink:0;}
+  .contact-form{background:var(--white); border:1px solid var(--border); border-radius:20px; padding:36px;}
+  .form-row{margin-bottom:18px;}
+  .form-row label{display:block; font-size:.85rem; font-weight:600; color:var(--navy); margin-bottom:7px;}
+  .form-row input, .form-row textarea{
+    width:100%; padding:12px 14px; border:1.5px solid var(--border); border-radius:10px;
+    font-size:.92rem; font-family:inherit; background:var(--bg); transition:.2s;
+  }
+  .form-row input:focus, .form-row textarea:focus{outline:none; border-color:var(--accent); background:var(--white);}
+  .submit-btn{
+    width:100%; padding:14px; border-radius:10px; background:var(--navy); color:var(--white);
+    font-weight:700; font-size:.95rem; border:none; cursor:pointer; transition:.25s;
+  }
+  .submit-btn:hover{background:var(--navy-light);}
+  .form-note{font-size:.78rem; color:var(--text-soft); margin-top:10px; text-align:center;}
+
+  footer{
+    background:var(--navy); color:#aebbca; text-align:center; padding:32px 24px; font-size:.85rem;
+  }
+  footer strong{color:var(--white);}
+
+  @media (max-width:880px){
+    .nav-links{display:none;}
+    .burger{display:flex;}
+    .hero-inner{grid-template-columns:1fr;}
+    .avatar-card{max-width:340px; margin:0 auto;}
+    .about-grid, .expertise-grid{grid-template-columns:1fr;}
+    .cred-grid{grid-template-columns:1fr;}
+    .contact-wrap{grid-template-columns:1fr;}
+    section{padding:70px 18px;}
+  }
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <nav>
+    <div class="logo">손영환<span>.</span></div>
+    <div class="nav-links">
+      <a href="file:///C:/Users/USER/Downloads/son-younghwan-landing%20(9).html#about">소개</a>
+      <a href="file:///C:/Users/USER/Downloads/son-younghwan-landing%20(9).html#career">경력</a>
+      <a href="file:///C:/Users/USER/Downloads/son-younghwan-landing%20(9).html#expertise">전문분야</a>
+      <a href="file:///C:/Users/USER/Downloads/son-younghwan-landing%20(9).html#credentials">자격·활동</a>
+      <a href="file:///C:/Users/USER/Downloads/son-younghwan-landing%20(9).html#contact">연락처</a>
+    </div>
+    <a href="file:///C:/Users/USER/Downloads/son-younghwan-landing%20(9).html#contact" class="nav-cta">컨설팅 문의</a>
+    <div class="burger" id="burger"><div></div><div></div><div></div></div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="eyebrow">MARKETING &amp; BUSINESS CONSULTANT</div>
+      <h1><small>경영지도사(마케팅) · 이노서스컨설팅 대표</small>손영환</h1>
+      <p class="tagline">SK 그룹 32년 마케팅·사업전략 현장 경험을 바탕으로, 중소기업의 사업모델 진단부터 마케팅 전략, 경영개선까지 실무형 컨설팅을 제공합니다.</p>
+      <div class="hero-buttons">
+        <a href="mailto:es00328@naver.com" class="btn-primary">이메일로 문의하기</a>
+        <a href="tel:010-3604-5189" class="btn-outline">전화 문의 010-3604-5189</a>
+      </div>
+    </div>
+    <div class="avatar-card">
+      <img src="file:///C:/Users/USER/Downloads/%ED%94%84%EB%A1%9C%ED%95%84%20%EC%82%AC%EC%A7%84%203.png" alt="손영환" class="avatar-photo" onerror="this.style.display=&#39;none&#39;; this.nextElementSibling.style.display=&#39;flex&#39;;" style="display: none;">
+      <div class="avatar-circle" style="display: flex;">손</div>
+      <h3>손영환</h3>
+      <div class="role">이노서스컨설팅 · 대표</div>
+      <ul>
+        <li>경영지도사(마케팅) 자격 보유</li>
+        <li>SK 마케팅·사업전략 32년</li>
+        <li>중소기업 맞춤형 컨설팅 수행중</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <div class="tag">About</div>
+      <h2>핵심 역량</h2>
+      <p>경험에서 검증된 실무형 전략으로 중소기업의 성장을 함께 설계합니다.</p>
+    </div>
+    <div class="about-grid">
+      <div class="card reveal">
+        <div class="num">01</div>
+        <h3>경력 요약</h3>
+        <p>SK 석유사업 마케팅·사업전략 분야 32년 근무, 2024년 경영지도사 자격 취득 후 중소기업 대상 사업모델 진단·마케팅 전략·경영개선 컨설팅을 수행하고 있습니다.</p>
+      </div>
+      <div class="card reveal">
+        <div class="num">02</div>
+        <h3>주요 분야</h3>
+        <ul>
+          <li>중소기업 마케팅·경영전략</li>
+          <li>DX / AX 확산 컨설팅</li>
+          <li>Living · F&amp;B · Fashion 전 분야 가능</li>
+        </ul>
+      </div>
+      <div class="card reveal">
+        <div class="num">03</div>
+        <h3>핵심 강점</h3>
+        <ul>
+          <li>경험 기반 실무형 전략 수립</li>
+          <li>중소기업 맞춤형 지원사업 연계</li>
+          <li>AI 기반 소상공인 플랫폼 마케팅</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="career">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <div class="tag">Career</div>
+      <h2>주요 경력</h2>
+      <p>대기업 사업전략 총괄부터 중소기업 컨설팅까지, 현장에서 쌓은 30년 이상의 발자취입니다.</p>
+    </div>
+    <div class="timeline">
+      <div class="t-item reveal">
+        <div class="t-dot"></div>
+        <div class="t-period">2025.01 — 현재</div>
+        <h3>이노서스컨설팅 · 대표</h3>
+        <div class="t-role">중소기업 경영 이슈 해결 및 효율화 추진 / 경영컨설팅 및 평가위원</div>
+        <ul>
+          <li>하이테커 — 생성형 AI 활용 국내외 마케팅 전략 (2024.11~12)</li>
+          <li>와이디서비스 — 서비스 차별화 마케팅 전략 (2025.06)</li>
+          <li>서울경제진흥원 Beauty 사업부 평가위원 (2026.02~현재)</li>
+          <li>상상우리 — AI 강사 / AI Consultant (2026.04~현재)</li>
+        </ul>
+      </div>
+      <div class="t-item reveal">
+        <div class="t-dot"></div>
+        <div class="t-period">2017.04 — 2020.12</div>
+        <h3>SK가스(고문) · Retail 사업본부장 (상무)</h3>
+        <div class="t-role">C4 Retail 사업 총괄 / 사업전략 및 비즈 고도화 추진</div>
+        <ul>
+          <li>Operational Excellency 및 New Format 전환 추진</li>
+          <li>Project Soft Landing — 사업 효율화</li>
+        </ul>
+      </div>
+      <div class="t-item reveal">
+        <div class="t-dot"></div>
+        <div class="t-period">1997.10 — 2017.03</div>
+        <h3>SK네트웍스 · 고객사업부장 (상무)</h3>
+        <div class="t-role">특수제품 사업 총괄 / 유통·윤활유·AP·해상·C4 소매망 관리</div>
+        <ul>
+          <li>마케팅 강화 및 OE/OI 사업모델 현대화</li>
+          <li>사업 안정화 및 경영성과 창출</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="expertise">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <div class="tag">Expertise</div>
+      <h2>전문 분야</h2>
+    </div>
+    <div class="expertise-grid">
+      <div class="card reveal">
+        <h3>전문역량</h3>
+        <ul>
+          <li>마케팅 차별화 / 성장 전략 수립</li>
+          <li>유통·고객관리 체계 구축</li>
+          <li>AI 활용 지역기반 플랫폼 마케팅 전략</li>
+          <li>AI 활용 콘텐츠 제작 및 자동화 전략</li>
+        </ul>
+      </div>
+      <div class="card reveal">
+        <h3>도구 활용</h3>
+        <ul>
+          <li>Excel·PowerPoint 데이터 분석 및 전략 보고서</li>
+          <li>생성형 AI(ChatGPT 등) 마케팅 콘텐츠·전략 기획</li>
+          <li>빅데이터 분석 기초 및 디지털 마케팅 도구</li>
+        </ul>
+      </div>
+      <div class="card reveal">
+        <h3>커뮤니케이션</h3>
+        <ul>
+          <li>CEO·실무진 대상 경영컨설팅 및 전략 제안</li>
+          <li>멘토링·코칭 및 맞춤형 컨설팅</li>
+          <li>이해관계자 협업 및 평가위원 활동</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="credentials">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <div class="tag">Credentials</div>
+      <h2>자격 및 대외활동</h2>
+    </div>
+    <div class="cred-grid">
+      <div class="cred-box reveal">
+        <h3>자격증</h3>
+        <div class="badges">
+          <span class="badge">경영지도사(마케팅)</span>
+          <span class="badge">유통관리사</span>
+          <span class="badge">창업보육전문매니저</span>
+          <span class="badge">직업능력개발훈련교사</span>
+          <span class="badge">AIBT 2급</span>
+        </div>
+      </div>
+      <div class="cred-box reveal">
+        <h3>교육 이수</h3>
+        <div class="badges">
+          <span class="badge">빅데이터 분석 전문과정 (서울시 빅데이터캠퍼스)</span>
+          <span class="badge">소상공인 마케팅 지원 실무자 과정 (서울시 50플러스재단)</span>
+        </div>
+      </div>
+    </div>
+    <div class="cred-box reveal">
+      <h3>대외활동</h3>
+      <div class="badges">
+        <span class="badge">중소벤처기업부 비즈니스지원단 자문위원</span>
+        <span class="badge">서울경제진흥원 평가위원</span>
+        <span class="badge">중소상공인희망재단 컨설턴트</span>
+      </div>
+      <div class="edu-line">
+        <span><strong>학력</strong> · 연세대학교 행정대학원 정책학 석사 (2021)</span>
+        <span><strong>어학</strong> · 영어(중상)</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <div class="tag">Contact</div>
+      <h2>컨설팅 문의</h2>
+      <p>사업모델 진단, 마케팅 전략, 경영개선이 필요하시다면 언제든 연락 주세요.</p>
+    </div>
+    <div class="contact-wrap">
+      <div class="contact-info reveal">
+        <h3>손영환</h3>
+        <p>이노서스컨설팅 대표 · 경영지도사(마케팅)</p>
+        <div class="contact-row"><div class="ic">✉</div> es00328@naver.com</div>
+        <div class="contact-row"><div class="ic">☎</div> 010-3604-5189</div>
+        <div class="contact-row"><div class="ic">📍</div> 서울 기반 · 전국 출장 가능</div>
+      </div>
+      <form class="contact-form reveal" id="contactForm">
+        <div class="form-row">
+          <label>성함</label>
+          <input type="text" placeholder="홍길동" required="">
+        </div>
+        <div class="form-row">
+          <label>연락처 또는 이메일</label>
+          <input type="text" placeholder="010-0000-0000 / email@example.com" required="">
+        </div>
+        <div class="form-row">
+          <label>문의 내용</label>
+          <textarea rows="4" placeholder="컨설팅이 필요한 내용을 간단히 적어주세요"></textarea>
+        </div>
+        <button type="submit" class="submit-btn">문의 보내기</button>
+        <div class="form-note">전송 시 기본 이메일 앱으로 연결됩니다</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <strong>손영환</strong> · 이노서스컨설팅 대표 &nbsp;|&nbsp; © 2026 All Rights Reserved
+</footer>
+
+<script>
+  // reveal on scroll
+  const revealEls = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); obs.unobserve(e.target); } });
+  }, {threshold:0.12});
+  revealEls.forEach(el=>obs.observe(el));
+
+  // burger toggle (mobile simple alert-free nav scroll)
+  const burger = document.getElementById('burger');
+  const navLinks = document.querySelector('.nav-links');
+  burger.addEventListener('click', ()=>{
+    if(navLinks.style.display === 'flex'){
+      navLinks.style.display = 'none';
+    } else {
+      navLinks.style.display = 'flex';
+      navLinks.style.flexDirection = 'column';
+      navLinks.style.position='absolute';
+      navLinks.style.top='64px';
+      navLinks.style.right='24px';
+      navLinks.style.background='var(--white)';
+      navLinks.style.padding='20px';
+      navLinks.style.borderRadius='12px';
+      navLinks.style.boxShadow='0 10px 30px rgba(0,0,0,.12)';
+      navLinks.style.gap='14px';
+    }
+  });
+
+  // contact form -> mailto
+  document.getElementById('contactForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const inputs = this.querySelectorAll('input, textarea');
+    const name = inputs[0].value;
+    const contact = inputs[1].value;
+    const message = inputs[2].value;
+    const subject = encodeURIComponent('컨설팅 문의 - ' + name);
+    const body = encodeURIComponent('성함: ' + name + '\n연락처: ' + contact + '\n문의내용: ' + message);
+    window.location.href = `mailto:es00328@naver.com?subject=${subject}&body=${body}`;
+  });
+</script>
+
+
+
+</body></html>
